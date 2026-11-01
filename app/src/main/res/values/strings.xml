@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VideoDL</string>
+    <string name="hint_url">Paste a video link…</string>
+    <string name="action_analyze">Analyze</string>
+    <string name="action_download">Download</string>
+</resources>
