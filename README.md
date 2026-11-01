@@ -97,12 +97,12 @@ platform means adding one `MediaExtractor`, not touching the downloader.
 
 ## 3. Build
 
-Requirements: JDK 17, Android SDK 35, Android Studio Koala (or newer).
+Requirements: JDK 17, Android SDK 35, Android Studio with support for AGP 9.3.x (or build through GitHub Actions).
 
 ### Android Studio
 
 1. **File → Open** → select this folder.
-2. Let Gradle sync (it downloads AGP 8.6.1, Kotlin 2.0.21, Compose BOM).
+2. Let Gradle sync (the project uses Android Gradle Plugin 9.3.1, Kotlin 2.4.21, and Gradle 9.7.0).
 3. Run `app` on a device/emulator with API 26+.
 
 ### Command line
@@ -127,6 +127,9 @@ Release build (unsigned until you add a keystore):
 
 CI: `.github/workflows/build.yml` builds `app-debug.apk` on every push to
 `main` and uploads it as a downloadable artifact (Actions → run → Artifacts).
+The workflow uses `android-actions/setup-android@v4`; do not request the retired
+Android SDK package named `tools`. The action installs command-line tools and
+platform-tools, while the workflow installs Android platform 35 and Build Tools 36.0.0.
 
 `local.properties` must point at your SDK (`sdk.dir=/path/to/Android/Sdk`);
 Android Studio writes it automatically.
